@@ -21,11 +21,11 @@ export class AppComponent {
     var doZoom = function() {
       var zoom = 1;
       var width = window.innerWidth;
-      zoom = 1000 / width;
-      var height = 1000 * 1600 / 1200;
+      zoom = width / 1000;
+      var height = window.innerWidth * 1600 / 1200;
 
       if ( window.innerHeight < height ) {
-        zoom = window.innerHeight / height;
+        zoom *= window.innerHeight / height;
       }
 
       document.body.style.setProperty('--zoom', "" + zoom);
