@@ -148,50 +148,50 @@
     top: 50%;
     z-index: 1000000000;
     .clue {
-      margin-top:15px;
-      line-height:1.1;
-      font-family: 'Heebo', sans-serif;
-      font-size:30px;
-      text-align:center;
-      direction:rtl;
-    }
-    .answer {
-      margin-top:15px;
-      line-height:1.1;
-      font-family: 'Heebo', sans-serif;
-      font-size:30px;
-      text-align:center;
-      direction:rtl;
-    }
-    .title {
+      margin-top:45px;
       line-height:1.1;
       font-family: 'Heebo', sans-serif;
       font-size:70px;
       text-align:center;
       direction:rtl;
     }
+    .answer {
+      margin-top:45px;
+      line-height:1.1;
+      font-family: 'Heebo', sans-serif;
+      font-size:70px;
+      text-align:center;
+      direction:rtl;
+    }
+    .title {
+      line-height:1.1;
+      font-family: 'Heebo', sans-serif;
+      font-size:90px;
+      text-align:center;
+      direction:rtl;
+    }
     .options {
       display: grid;
       grid-template-columns: max-content max-content max-content max-content max-content;
-      grid-column-gap: 10px;
+      grid-column-gap: 25px;
       margin-left: auto;
       margin-right: auto;
       width: fit-content;
       direction: rtl;
-      margin-top: 10px;
+      margin-top: 20px;
 
       > div {
         pointer-events: auto;
         line-height:1.1;
         font-family: 'Heebo', sans-serif;
-        font-size:20px;
+        font-size:60px;
         text-align:center;
         cursor:pointer;
         direction:rtl;
-        border-bottom:1px dashed rgb(100,100,100);
+        border-bottom:5px dashed rgb(100,100,100);
         transition:border-bottom 0.35s;
         &:hover {
-          border-bottom:1px solid black;
+          border-bottom:5px solid black;
         }
         &.active {
           font-weight:bold;
@@ -245,7 +245,7 @@
     pointer-events: auto;
     line-height: 1.1;
     font-family: "Heebo", sans-serif;
-    font-size: 60px;
+    font-size: 95px;
     text-align: center;
     direction: rtl;
     z-index:10000000;
@@ -253,7 +253,7 @@
 
     span {
       clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-      font-size:50px;
+      font-size:80px;
       font-style:italic;
     }
 
