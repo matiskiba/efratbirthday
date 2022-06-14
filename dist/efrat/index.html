@@ -1,4 +1,23 @@
 <!DOCTYPE html><html lang="en"><head>
+  <script>
+    var oldZoom = null;
+    var doZoom = function() {
+      var zoom = 1;
+      var width = window.innerWidth;
+      zoom = width / 1000;
+      var height = window.innerWidth * 1600 / 1200;
+
+      if ( window.innerHeight < height ) {
+        zoom *= window.innerHeight / height;
+      }
+
+      if ( zoom !== oldZoom )
+        document.body.style.setProperty('--zoom', "" + zoom);
+      oldZoom = zoom;
+    };
+    setInterval(doZoom,500);
+    doZoom();
+  </script>
   <meta charset="utf-8">
   <title>Efrat</title>
   <base href="https://matiskiba.github.io/efratbirthday/dist/efrat/">
@@ -13,6 +32,6 @@
 <style>.mat-typography{font:400 14px/20px Roboto,Helvetica Neue,sans-serif;letter-spacing:normal}html,body{height:100%}body{margin:0;font-family:Roboto,Helvetica Neue,sans-serif;overflow:hidden}</style><link rel="stylesheet" href="styles.96984b5ca5d8dcaa.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.96984b5ca5d8dcaa.css"></noscript></head>
 <body class="mat-typography">
   <app-root></app-root>
-<script src="runtime.382f6b8f02d0f593.js" type="module"></script><script src="polyfills.c458f35d40cf63da.js" type="module"></script><script src="main.2f88ab1cda9d0167.js" type="module"></script>
+<script src="runtime.382f6b8f02d0f593.js" type="module"></script><script src="polyfills.c458f35d40cf63da.js" type="module"></script><script src="main.29b28720216909e4.js" type="module"></script>
 
 </body></html>

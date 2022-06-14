@@ -1,6 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>
+    var oldZoom = null;
+    var doZoom = function() {
+      var zoom = 1;
+      var width = window.innerWidth;
+      zoom = width / 1000;
+      var height = window.innerWidth * 1600 / 1200;
+
+      if ( window.innerHeight < height ) {
+        zoom *= window.innerHeight / height;
+      }
+
+      if ( zoom !== oldZoom )
+        document.body.style.setProperty('--zoom', "" + zoom);
+      oldZoom = zoom;
+    };
+    setInterval(doZoom,500);
+    doZoom();
+  </script>
   <meta charset="utf-8">
   <title>Efrat</title>
   <base href="/">
