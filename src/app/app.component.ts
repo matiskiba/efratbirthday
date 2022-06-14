@@ -21,7 +21,8 @@ export class AppComponent {
     var doZoom = function() {
       var zoom = 1;
       var width = window.innerWidth;
-      var height = width * 1600 / 1200;
+      zoom = 1000 / width;
+      var height = 1000 * 1600 / 1200;
 
       if ( window.innerHeight < height ) {
         zoom = window.innerHeight / height;

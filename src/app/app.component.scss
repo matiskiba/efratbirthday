@@ -3,11 +3,21 @@
   height:0;
   overflow:hidden;
 }
-.container {
-  transform:scale(var(--zoom));
-  transform-origin:center top;
 
-  width:100%;
+.container_container {
+  transform: scale(var(--zoom));
+  transform-origin: left top;
+  width: calc(100vw / var(--zoom));
+  height: calc(100vh / var(--zoom));
+  overflow: hidden
+}
+
+.container {
+  margin-left:auto;
+  margin-right:auto;
+  
+  width:1000px;
+  max-width:none;
   aspect-ratio:1200/1600;
   position:relative;
   overflow:hidden;

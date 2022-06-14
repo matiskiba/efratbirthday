@@ -32,68 +32,70 @@
   <img src="./assets/girlfriend.jpg">
 </div>
 
-<div class="container" [class.is_active]="is_active" [class.hasHover]="getActiveId()" (mouseover)="reset($event)" (click)="questionId=null">
-  <div class="opening">
-    <div>
-      20 שאלות
-      <br>
-      <span>
-      גירסת יום ההולדת
-    </span>
+<div class="container_container">
+  <div class="container" [class.is_active]="is_active" [class.hasHover]="getActiveId()" (mouseover)="reset($event)" (click)="questionId=null">
+    <div class="opening">
+      <div>
+        20 שאלות
+        <br>
+        <span>
+        גירסת יום ההולדת
+      </span>
+      </div>
     </div>
-  </div>
 
-  <!--
-  <div class="image" [attr.data-id]="getActiveId()"></div>
-  -->
-  <img src="./assets/clean.jpg" class="active">
-  <img src="./assets/rock.jpg" [class.active]="getActiveId() == 'stone'">
-  <img src="./assets/dog.jpg" [class.active]="getActiveId() == 'munch'">
-  <img src="./assets/mati.jpg" [class.active]="getActiveId() == 'mati'">
-  <img src="./assets/girlfriend.jpg" [class.active]="getActiveId() == 'efrat'">
-  <ng-container *ngTemplateOutlet="svg; context: {id:'mati'}"></ng-container>
-  <ng-container *ngTemplateOutlet="svg; context: {id:'efrat'}"></ng-container>
-  <ng-container *ngTemplateOutlet="svg; context: {id:'munch'}"></ng-container>
-  <ng-container *ngTemplateOutlet="svg; context: {id:'stone'}"></ng-container>
-  <ng-container *ngFor="let question of questions['munch']; index as index">
-    <div class="question" id="munch-question" [style.--index]="index" [class.visible]="getActiveId() == 'munch'" data-id="munch">
-      <div
-        class="inner"
-        [attr.score]="question.score"
-        [style.--x]="question.inner['x'] + '%'"
-        [style.--y]="question.inner['y'] + '%'"
-        (click)="enterQuestion('munch',index);$event.stopPropagation()"
-        [matTooltip]="question.tooltip"
-        matTooltipPosition="left"
-      ></div>
-    </div>
-  </ng-container>
-  <!--<img src="./assets/cuteness.jpg" class="overlay" [style.--url]="'url(#'+getActiveId()+'-mask)'">-->
-  <div class="scoreOverview">
-    ניקוד
-    {{getScore()}}/20
-  </div>
-  <div class="questionDialog" [class.visible]="questionId" (click)="$event.stopPropagation()">
-    <div class="title" *ngIf="questionId && questionIndex !== null">
-      {{questions[questionId][questionIndex]['question']}}
-    </div>
-    <div class="options" *ngIf="questionId && questionIndex !== null">
-      <div (click)="questions[questionId][questionIndex]['showClue'] = !questions[questionId][questionIndex]['showClue']; questions[questionId][questionIndex]['showAnswer'] = false">רמז</div>
-      <div (click)="questions[questionId][questionIndex]['showAnswer'] = !questions[questionId][questionIndex]['showAnswer']; questions[questionId][questionIndex]['showClue'] = false">תשובה</div>
-      <div [class.active]="questions[questionId][questionIndex]['score'] === 1" (click)="questions[questionId][questionIndex]['score']=1">צדקתי</div>
-      <div [class.active]="questions[questionId][questionIndex]['score'] === 0" (click)="questions[questionId][questionIndex]['score']=0">טעיתי</div>
-      <div [class.active]="questions[questionId][questionIndex]['score'] === 0.5" (click)="questions[questionId][questionIndex]['score']=0.5">חצי</div>
-    </div>
-    <ng-container *ngIf="questionId && questionIndex !== null && questions[questionId][questionIndex]['showClue']">
-      <div class="clue">
-        {{questions[questionId][questionIndex]['clue']}}
+    <!--
+    <div class="image" [attr.data-id]="getActiveId()"></div>
+    -->
+    <img src="./assets/clean.jpg" class="active">
+    <img src="./assets/rock.jpg" [class.active]="getActiveId() == 'stone'">
+    <img src="./assets/dog.jpg" [class.active]="getActiveId() == 'munch'">
+    <img src="./assets/mati.jpg" [class.active]="getActiveId() == 'mati'">
+    <img src="./assets/girlfriend.jpg" [class.active]="getActiveId() == 'efrat'">
+    <ng-container *ngTemplateOutlet="svg; context: {id:'mati'}"></ng-container>
+    <ng-container *ngTemplateOutlet="svg; context: {id:'efrat'}"></ng-container>
+    <ng-container *ngTemplateOutlet="svg; context: {id:'munch'}"></ng-container>
+    <ng-container *ngTemplateOutlet="svg; context: {id:'stone'}"></ng-container>
+    <ng-container *ngFor="let question of questions['munch']; index as index">
+      <div class="question" id="munch-question" [style.--index]="index" [class.visible]="getActiveId() == 'munch'" data-id="munch">
+        <div
+          class="inner"
+          [attr.score]="question.score"
+          [style.--x]="question.inner['x'] + '%'"
+          [style.--y]="question.inner['y'] + '%'"
+          (click)="enterQuestion('munch',index);$event.stopPropagation()"
+          [matTooltip]="question.tooltip"
+          matTooltipPosition="left"
+        ></div>
       </div>
     </ng-container>
-    <ng-container *ngIf="questionId && questionIndex !== null && questions[questionId][questionIndex]['showAnswer']">
-      <div class="answer">
-        {{questions[questionId][questionIndex]['answer']}}
+    <!--<img src="./assets/cuteness.jpg" class="overlay" [style.--url]="'url(#'+getActiveId()+'-mask)'">-->
+    <div class="scoreOverview">
+      ניקוד
+      {{getScore()}}/20
+    </div>
+    <div class="questionDialog" [class.visible]="questionId" (click)="$event.stopPropagation()">
+      <div class="title" *ngIf="questionId && questionIndex !== null">
+        {{questions[questionId][questionIndex]['question']}}
       </div>
-    </ng-container>
-  </div>
+      <div class="options" *ngIf="questionId && questionIndex !== null">
+        <div (click)="questions[questionId][questionIndex]['showClue'] = !questions[questionId][questionIndex]['showClue']; questions[questionId][questionIndex]['showAnswer'] = false">רמז</div>
+        <div (click)="questions[questionId][questionIndex]['showAnswer'] = !questions[questionId][questionIndex]['showAnswer']; questions[questionId][questionIndex]['showClue'] = false">תשובה</div>
+        <div [class.active]="questions[questionId][questionIndex]['score'] === 1" (click)="questions[questionId][questionIndex]['score']=1">צדקתי</div>
+        <div [class.active]="questions[questionId][questionIndex]['score'] === 0" (click)="questions[questionId][questionIndex]['score']=0">טעיתי</div>
+        <div [class.active]="questions[questionId][questionIndex]['score'] === 0.5" (click)="questions[questionId][questionIndex]['score']=0.5">חצי</div>
+      </div>
+      <ng-container *ngIf="questionId && questionIndex !== null && questions[questionId][questionIndex]['showClue']">
+        <div class="clue">
+          {{questions[questionId][questionIndex]['clue']}}
+        </div>
+      </ng-container>
+      <ng-container *ngIf="questionId && questionIndex !== null && questions[questionId][questionIndex]['showAnswer']">
+        <div class="answer">
+          {{questions[questionId][questionIndex]['answer']}}
+        </div>
+      </ng-container>
+    </div>
 
+  </div>
 </div>
