@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-tooltip {
+  color: black !important;
+  background: white !important;
+  border: 1px solid black !important;
+  font-size: 36px !important;
+  font-family: 'Heebo', sans-serif !important;
+  padding:20px !important;
+  box-sizing:border-box !important;
+  max-width:none !important;
+}
