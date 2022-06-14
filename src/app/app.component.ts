@@ -14,6 +14,22 @@ export class AppComponent {
 
   is_active = false;
 
+  zoom = 1;
+
+  constructor() {
+    var self = this;
+    var doZoom = function() {
+      self.zoom = 1;
+      var width = window.innerWidth;
+      var height = width * 1600 / 1200;
+
+      if ( window.innerHeight < height ) {
+        self.zoom = window.innerHeight / height;
+      }
+    };
+    setInterval(doZoom,500);
+  }
+
   ngAfterViewInit()	{
     var self = this;
     setTimeout(function() {

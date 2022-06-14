@@ -4,7 +4,10 @@
   overflow:hidden;
 }
 .container {
-  width:1200px;
+  transform:scale(var(--zoom));
+  transform-origin:center top;
+
+  width:100%;
   aspect-ratio:1200/1600;
   position:relative;
   overflow:hidden;
@@ -201,7 +204,7 @@
     pointer-events: auto;
     line-height: 1.1;
     font-family: "Heebo", sans-serif;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
     direction: rtl;
     color: white;
