@@ -24,6 +24,24 @@
   </svg>
 </ng-template>
 
+<ng-template #question let-id="id">
+  <ng-container *ngFor="let question of questions[id]; index as index">
+    <div class="question" id="munch-question" [style.--index]="index" [class.visible]="getActiveId() == id" [attr.data-id]="id">
+      <div
+        class="inner"
+        [attr.score]="question.score"
+        [style.--x]="question.inner['x'] + '%'"
+        [style.--y]="question.inner['y'] + '%'"
+        (click)="enterQuestion(id,index);$event.stopPropagation()"
+        [matTooltip]="question.tooltip"
+        matTooltipPosition="left"
+      >
+        <div class="inner_inner"></div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
 <div class="preload">
   <img src="./assets/clean.jpg">
   <img src="./assets/rock.jpg">
@@ -56,21 +74,14 @@
     <ng-container *ngTemplateOutlet="svg; context: {id:'efrat'}"></ng-container>
     <ng-container *ngTemplateOutlet="svg; context: {id:'munch'}"></ng-container>
     <ng-container *ngTemplateOutlet="svg; context: {id:'stone'}"></ng-container>
-    <ng-container *ngFor="let question of questions['munch']; index as index">
-      <div class="question" id="munch-question" [style.--index]="index" [class.visible]="getActiveId() == 'munch'" data-id="munch">
-        <div
-          class="inner"
-          [attr.score]="question.score"
-          [style.--x]="question.inner['x'] + '%'"
-          [style.--y]="question.inner['y'] + '%'"
-          (click)="enterQuestion('munch',index);$event.stopPropagation()"
-          [matTooltip]="question.tooltip"
-          matTooltipPosition="left"
-        >
-          <div class="inner_inner"></div>
-        </div>
-      </div>
-    </ng-container>
+
+
+    <ng-container *ngTemplateOutlet="question; context: {id:'mati'}"></ng-container>
+    <ng-container *ngTemplateOutlet="question; context: {id:'efrat'}"></ng-container>
+    <ng-container *ngTemplateOutlet="question; context: {id:'munch'}"></ng-container>
+    <ng-container *ngTemplateOutlet="question; context: {id:'stone'}"></ng-container>
+
+
     <!--<img src="./assets/cuteness.jpg" class="overlay" [style.--url]="'url(#'+getActiveId()+'-mask)'">-->
     <div class="scoreOverview">
       ניקוד

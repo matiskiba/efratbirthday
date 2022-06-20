@@ -120,6 +120,11 @@
         transform: translateX(-50%) translateY(-50%);
       }
 
+      transition:transform 0.35s;
+      &:hover {
+        transform:scale(2);
+      }
+
       cursor:help;
       pointer-events: auto;
       position: absolute;
